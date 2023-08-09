@@ -1,0 +1,58 @@
+name: Crypto Price Watch
+
+on:
+  schedule:
+    # Runs every day at 00:00 UTC
+    - cron: '0 0 * * *'
+
+jobs:
+  price-watch:
+    runs-on: ubuntu-latest
+    steps:
+      # Create a codespace from the repo
+      - name: Create codespace
+        uses: codespaces/create@v1
+        with:
+          repository: ${{ github.repository }}
+          machine_type: basic
+          # Store the codespace ID as an output variable
+          output_id: codespace_id
+
+      # Start the codespace
+      - name: Start codespace
+        uses: codespaces/start@v1
+        with:
+          id: ${{ steps.create-codespace.outputs.codespace_id }}
+
+      # Run the Python script
+      - name: Run Python script
+        run: |
+          # Install dependencies
+          pip install requests matplotlib pandas
+          # Run the script
+          python crypto_price_watch.ipynb
+
+      # Stop the codespace
+      - name: Stop codespace
+        uses: codespaces/stop@v1
+        with:
+          id: ${{ steps.create-codespace.outputs.codespace_id }}
+
+      # Delete the codespace (optional)
+      - name: Delete codespace
+        uses: codespaces/delete@v1
+        with:
+          id: ${{ steps.create-codespace.outputs.codespace_id }}
+
+      # Push the changes to the repo
+      - name: Push changes to repo
+        run: |
+          # Configure git user name and email
+          # git config --global user.name 'Your Name'
+          # git config --global user.email 'your.email@example.com'
+          # Add the CSV and plot files to the staging area
+          git add .
+          # Commit the changes with a message
+          git commit -m "Update data and plot"
+          # Push the changes to the remote repo
+          git push origin main
