@@ -27,3 +27,13 @@ If you want to contribute to this project, you can do any of the following:
 - Report any issues or bugs you find
 
 To contribute feel free to PR!
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](https://www.freecodecamp.org/news/how-open-source-licenses-work-and-how-to-add-them-to-your-projects-34310c3cf94/) file for details.
+
+The MIT License is a permissive open source license that allows you to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of this project, as long as you include the original copyright notice and a copy of the license in any copies or substantial portions of this project.
+
+The MIT License is one of the most popular and widely used licenses in the open source community. It is compatible with many other licenses and does not impose any restrictions on how others can use your project.
+
+For more information about the MIT License, see [here](https://choosealicense.com).
