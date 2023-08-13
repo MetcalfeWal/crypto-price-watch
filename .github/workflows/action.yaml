@@ -13,7 +13,7 @@ jobs:
       - name: Create codespace
         uses: codespaces/create@v1
         with:
-          repository: ${{ github.crypto-price-watch }}
+          repository: ${{ crypto-price-watch }}
           # repository: crypto-price-watch
           machine_type: basic
           # Store the codespace ID as an output variable
