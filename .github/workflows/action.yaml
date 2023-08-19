@@ -66,7 +66,7 @@ jobs:
   run-notebook:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: crypto-price-watch
         uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v2
